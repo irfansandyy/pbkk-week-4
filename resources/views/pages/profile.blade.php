@@ -1,0 +1,14 @@
+@extends('layouts.app')
+@section('title', 'Profil Mahasiswa')
+@section('content')
+<div class="page-kicker"><span class="eyebrow"><span class="live-dot"></span> DI BALIK RUANG INI</span><span class="muted kicker-note">01 / Profil Mahasiswa</span></div>
+<section class="page-intro"><h1>Berkenalan lebih <span>dekat.</span></h1><p>Identitas akademik dan eksplorasi yang sedang saya bangun.</p></section>
+<div class="profile-layout">
+    <aside class="panel identity-panel"><div class="identity-pattern" aria-hidden="true"></div><span class="avatar large">{{ $profile['initials'] }}</span><span class="pill peach">Mahasiswa ITS</span><h2>{{ $profile['name'] }}</h2><p>{{ $profile['program'] }}</p><span class="nrp">NRP {{ $profile['nrp'] }}</span><div class="identity-location"><x-icon name="pin" size="17" /> Surabaya, Indonesia</div><a class="button primary" href="{{ route('ideas', $themeQuery) }}">Lihat eksplorasi riset <x-icon name="arrow" size="17" /></a></aside>
+    <div class="profile-main"><section class="panel about-panel"><span class="eyebrow muted">TENTANG SAYA</span><h2>Belajar dengan membangun.</h2><p>Saya {{ $profile['name'] }}, mahasiswa {{ $profile['program'] }} di {{ $profile['university'] }}. Website ini menjadi ruang untuk mendokumentasikan profil akademik, rancangan riset kelompok, dan gagasan baru.</p><p>Dalam proyek ini, saya mengeksplorasi bagaimana agen AI dapat bekerja bersama untuk menguji kualitas aplikasi web, menemukan masalah keamanan, dan mengusulkan perbaikan yang dapat diverifikasi.</p></section>
+        <section class="profile-info-grid" aria-label="Informasi akademik"><x-info-card label="Nomor Pokok Mahasiswa" :value="$profile['nrp']" icon="user"><span>Identitas akademik</span></x-info-card><x-info-card label="Program Studi" :value="$profile['program']" icon="book"><span>Institut Teknologi Sepuluh Nopember</span></x-info-card><x-info-card label="Mata Kuliah" value="Pemrograman Berbasis Kerangka Kerja" icon="code"><span>Tugas mandiri · Pertemuan 4</span></x-info-card><x-info-card label="Topik Eksplorasi" value="Agentic AI" icon="flask"><span>Web quality, security & automated repair</span></x-info-card></section>
+        <section class="panel focus-panel"><div class="section-heading compact"><h2>Ruang eksplorasi</h2><x-icon name="spark" /></div><div class="tags"><span>Web Development</span><span>Agentic AI</span><span>Quality Assurance</span><span>Application Security</span></div><p class="muted">Bidang yang dipelajari melalui rancangan proyek kelompok.</p></section>
+    </div>
+</div>
+<div class="collaboration-bar"><div><h2>Sebuah ide bisa jadi awal kolaborasi.</h2><p>Bagikan perspektifmu untuk pengembangan platform ini.</p></div><a class="button primary" href="{{ route('ideas', $themeQuery) }}#form-ide">Bagikan ide riset <x-icon name="arrow" size="18" /></a></div>
+@endsection
